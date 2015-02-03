@@ -92,8 +92,6 @@ else{
 	int optSpell = whichSR("-spell", FlagOn);
 	int optFiltr = whichSR("-filtr", FlagOn);
 
-//	for(int i = 0; i < answer[optRM].getSize() ; i++) cout << answer[optRM].getArg(i) <<" ";
-
 // ============= Modul obslugi usuwania kolumn z wierszy
 
 	vector <int> RM_Args;
@@ -231,11 +229,12 @@ else{
 		if( lineF.length() != 0){
 //			cout << lineF << endl;
 			humanizerLINE varZM(lineF, sep );
-			if( optFiltr >= 0 && varZM.VarKSfiltr( filtrIN, header.line) == 1 ){
-				if( varZM.VarKSfiltr( filtrIN, header.line) == 1 ) break;
-				if( optSpell >= 0 ) varZM.VarKSspell( spellIN, header_spell );
-				if( optRM >= 0) varZM.VarKSrm( RM_Args );
-				varZM.ShowVarKS();
+			if( optFiltr >= 0 ){ 
+					if( varZM.VarKSfiltr( filtrIN, header.line) == 1 ){ ; //<--Tuataj jeszcze filtr ma byc
+					if( optSpell >= 0 ) varZM.VarKSspell( spellIN, header_spell );
+					if( optRM >= 0) varZM.VarKSrm( RM_Args );
+					varZM.ShowVarKS();
+				}
 			}else{
 				if( optSpell >= 0 ) varZM.VarKSspell( spellIN, header_spell );
 				if( optRM >= 0) varZM.VarKSrm( RM_Args );				
